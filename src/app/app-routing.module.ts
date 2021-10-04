@@ -15,8 +15,11 @@ const routes: Routes = [
     component: RecipesComponent,
     children: [
       { path: '', component: RecipeStartComponent },
+
+      { path: 'new', component: RecipeEditComponent },
+      // dynamic paths should be there.
       { path: ':id', component: RecipeDetailComponent },
-      {path: "new", component: RecipeEditComponent}
+      { path: ':id/edit', component: RecipeEditComponent },
     ],
   },
   { path: 'shopping-list', component: ShoppingListComponent },
