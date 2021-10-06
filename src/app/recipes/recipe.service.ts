@@ -10,7 +10,7 @@ export class RecipeService {
 
   constructor(private slService: ShoppingListService) {}
 
-  private recipes: Recipe[] = [
+  /*   private recipes: Recipe[] = [
     new Recipe(
       'A test Recipe',
       'this is simply a test',
@@ -23,8 +23,13 @@ export class RecipeService {
       'https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F07%2F22%2F8000900-2000.jpg',
       [new Ingredient('Buns', 2), new Ingredient('Meat', 1)]
     ),
-  ];
+  ]; */
+  private recipes: Recipe[] = [];
 
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
   getRecipes() {
     // slice using for copy. We dont want to reference.
     return this.recipes.slice();
