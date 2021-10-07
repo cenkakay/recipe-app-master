@@ -13,28 +13,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  {
-    path: 'recipes',
-    component: RecipesComponent,
-    canActivate: [AuthGuard],
-    children: [
-      { path: '', component: RecipeStartComponent },
 
-      { path: 'new', component: RecipeEditComponent },
-      // dynamic paths should be there.
-      {
-        path: ':id',
-        component: RecipeDetailComponent,
-        resolve: [RecipeResolverService],
-      },
-      {
-        path: ':id/edit',
-        component: RecipeEditComponent,
-        resolve: [RecipeResolverService],
-      },
-    ],
-  },
-  { path: 'shopping-list', component: ShoppingListComponent },
   { path: 'auth', component: AuthComponent },
 ];
 
